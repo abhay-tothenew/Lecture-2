@@ -4,93 +4,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORM-HTML</title>
+    <title>Bug Report Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background-color: #fff;
+        }
+
+        nav h2 {
+            color: #009688;
+            font-size: 26px;
+            margin: 0;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #009688;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        main {
+            width: 50%;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 22px;
+            color: #fff;
+            padding: 15px;
+            background-color: #009688;
+            border-radius: 10px 10px 0 0;
+            margin: -30px -30px 20px -30px;
+            text-align: center;
+        }
+
+        label {
+            font-weight:600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        select {
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 60px;
+        }
+
+        .radio-group input {
+            margin-right: 20px;
+        }
+
+        .footer {
+            background-color: #e0e0e0;
+            padding: 15px;
+            text-align: right;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            margin: -15px -30px -30px -30px;
+        }
+
+        .submit-btn {
+            background-color: #009688;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #00796B;
+        }
+    </style>
 </head>
 
 <body>
 
-    <div>
-        <nav
-            style="display: flex; justify-content: space-between; align-items: center; margin-left: 30px; margin-right: 30px;">
-            <h2 style="color: aqua; font-family: 'Gill Sans'; font-size: 30px;">TO THE NEW</h2>
-            <ul style="display: flex; justify-content: space-between; list-style-type: none;">
-                <li style="margin-right: 10px;"><a href="index.html"
-                        style="color: aqua; text-decoration: none;">Home</a></li>
-                <li><a href="about.html" style="color: aqua; text-decoration: none;">Quick Help</a></li>
-            </ul>
-        </nav>
+    <nav>
+        <h2>TO THE NEW</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Quick Help</a></li>
+        </ul>
+    </nav>
 
-        <main
-            style="display: flex; justify-content: center; align-items: center; flex-direction: column; border: 1px solid rgb(149, 155, 155); margin-left: 360px; margin-right: 360px; padding-bottom: 0px; border-radius: 10px; margin-top:20px">
-            <div
-                style="background-color: rgb(149, 155, 155); width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
-                <h1 style="font-family: 'Gill Sans'; font-size: 30px; margin-left: 10px; color: white;">Bug Report</h1>
+    <main>
+        <h1>Bug Report</h1>
+
+        <form action method="POST">
+            <label for="name">Title:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="message">Description:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <label for="operating_system">Operating System:</label>
+            <select id="operating_system" name="operating_system" required>
+                <option value="Windows">Windows</option>
+                <option value="Mac">Mac</option>
+                <option value="Linux">Linux</option>
+            </select>
+
+            <label for="products">Products:</label>
+            <select id="products" name="products" required>
+                <option value="Product1">Product1</option>
+                <option value="Product2">Product2</option>
+                <option value="Product3">Product3</option>
+            </select>
+
+            <label for="version">Version:</label>
+            <input type="text" id="version" name="version" required>
+
+            <label>Licence:</label>
+            <div class="radio-group">
+                <div style="display: flex; align-items: center;">
+                    <input type="radio" id="Free" name="licence" value="Free">
+                    <label for="Free">Free</label>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <input type="radio" id="Business" name="licence" value="Business">
+                    <label for="Business">Business</label>
+                </div>
             </div>
 
-            <form action method="POST"
-                style="display: flex; flex-direction: column; justify-content: flex-start; width: 90%; margin-top: 5px;">
-                <label for="name" style="margin-bottom: 5px;">Title:</label>
-                <input type="text" id="name" name="name" required
-                    style="border-radius: 5px; border: 1.5px solid rgb(149, 155, 155); padding: 5px;"><br><br>
+            <label for="severity">Severity:</label>
+            <select id="severity" name="severity" required>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
 
-                <label for="message" style="margin-bottom: 5px;">Description:</label>
-                <textarea id="message" name="message" required
-                    style="border-radius: 5px; border: 1.5px solid rgb(149, 155, 155); padding: 5px;"></textarea><br><br>
+            <label for="attachments">Attachments:</label>
+            <input type="file" id="attachments" name="attachments" required>
 
-                <label for="operating_system" style="margin-bottom: 5px;">Operating System:</label>
-                <select id="operating_system" name="operating_system" required
-                    style="border-radius: 5px; border: 1.5px solid rgb(149, 155, 155); padding: 5px; background-color: aqua; color:white; font-weight: bold;">
-                    <option value="Windows">Windows</option>
-                    <option value="Mac">Mac</option>
-                    <option value="Linux">Linux</option>
-                </select><br><br>
-
-                <label for="products" style="margin-bottom: 5px;">Products:</label>
-                <select id="products" name="products" required
-                    style="border-radius: 5px; border: 1.5px solid rgb(149, 155, 155); padding: 5px; background-color: aqua; color:white; font-weight: bold;">
-                    <option value="Product1">Product1</option>
-                    <option value="Product2">Product2</option>
-                    <option value="Product3">Product3</option>
-                </select><br><br>
-
-                <label for="version" style="margin-bottom: 5px;">Version:</label>
-                <input type="text" id="version" name="version" required
-                    style="border-radius: 5px; border: 1.5px solid rgb(149, 155, 155); padding: 10px; width: 85px;"><br><br>
-
-                <label for="licence" style="margin-bottom: 5px;">Licence:</label>
-                <div style="display: flex;justify-content:space-between; gap: 30px;width:50%;">
-                    <div>
-                        <input type="radio" id="Free" name="licence" value="Free">
-                        <label for="Free">Free</label><br><br>
-                    </div>
-
-                    <div>
-                        <input type="radio" id="Business" name="licence" value="Business">
-                        <label for="Business">Business</label><br>
-                    </div>
-                </div>
-
-                <label for="severity" style="margin-bottom: 5px;">Severity:</label>
-                <select id="severity" name="severity" required
-                    style="border-radius: 5px; border: 1.5px solid rgb(149, 155, 155); padding: 5px; background-color: aqua; color:white; font-weight: bold;">
-                    <option value="High">High</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Low">Low</option>
-                </select><br>
-
-                <label for="attachments" style="margin-bottom: 5px;">Attachments:</label>
-                <input type="file" id="attachments" name="attachments" required><br><br>
-
-                <div
-                    style="background-color: rgb(187, 180, 180); width: 103.8%; padding: 20px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; display: flex; justify-content: flex-end; margin-left:-30px; margin-right:-50px;">
-                    <button type="submit"
-                        style="background-color: aqua; color: white; padding: 10px 20px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Submit</button>
-                </div>
-
-            </form>
-        </main>
-
-    </div>
+            <div class="footer">
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
+    </main>
 
 </body>
 
